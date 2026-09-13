@@ -1,16 +1,16 @@
-## Hi there 👋
+# Hi there, I'm Daniel! 👋
 
-<!--
-**danielamodu/danielamodu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Welcome to my GitHub profile! I am a Devops Engineer who is passionate about building applications and cloud computing
 
-Here are some ideas to get you started:
+### 💻 Tech Stack
+* **Languages:** [JavaScript, Python, HTML/CSS]
+* **Frameworks & Libraries:** [Node.js, React, Django]
+* **Tools:** [Git, GitHub, VS Code, Figma]
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+### 📫 Connect with me
+- **Twitter:** x.com/szrxbt
+- **Portfolio:** amodu.dev
+- **Email:** theamebonetwork@gmail.com
+
+---
+⭐️ *Thanks for stopping by!*
