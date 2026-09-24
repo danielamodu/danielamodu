@@ -1,3 +1,3 @@
-i dont know what to put here tbh
+solutions architect - defi enjoyoor.
 
-but you can check my repos i guess
+ex computer science graduate
