@@ -11,7 +11,7 @@ Lagos, Nigeria
 </div>
 
 ### Now
-Building [one line on what you're working on].
+Im just being a dawg.
 
 ### Projects
 <table>
