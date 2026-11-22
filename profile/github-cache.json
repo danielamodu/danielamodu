@@ -39,17 +39,6 @@
       "updated_at": "2026-10-27T20:33:07Z",
       "topics": []
     },
-    "covert": {
-      "name": "covert",
-      "full_name": "danielamodu/covert",
-      "html_url": "https://github.com/danielamodu/covert",
-      "description": "Covert is a privacy-preserving commerce layer for AI agents, built on MagicBlock's Private Ephemeral Rollups (PER). Agents can buy and sell services without leaking strategy, identity, or transaction amounts to the public ledger.",
-      "language": "JavaScript",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "updated_at": "2026-05-25T20:30:23Z",
-      "topics": []
-    },
     "Kestrel": {
       "name": "Kestrel",
       "full_name": "danielamodu/Kestrel",
@@ -70,6 +59,17 @@
       "stargazers_count": 1,
       "forks_count": 0,
       "updated_at": "2026-11-04T21:53:48Z",
+      "topics": []
+    },
+    "covert": {
+      "name": "covert",
+      "full_name": "danielamodu/covert",
+      "html_url": "https://github.com/danielamodu/covert",
+      "description": "Covert is a privacy-preserving commerce layer for AI agents, built on MagicBlock's Private Ephemeral Rollups (PER). Agents can buy and sell services without leaking strategy, identity, or transaction amounts to the public ledger.",
+      "language": "JavaScript",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-05-25T20:30:23Z",
       "topics": []
     }
   }

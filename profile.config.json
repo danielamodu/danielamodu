@@ -51,7 +51,7 @@
     "focus": "systems",
     "state": "active",
     "links": [
-      { "label": "satoxbt.com", "icon": "globe", "url": "https://satoxbt.com" },
+      { "label": "linkedin", "icon": "linkedin", "url": "https://www.linkedin.com/in/daniel-amodu-szr" },
       { "label": "amodu.dev", "icon": "terminal", "url": "https://amodu.dev" },
       { "label": "@szrxbt", "icon": "x", "url": "https://x.com/szrxbt" },
       { "label": "danielamodu", "icon": "github", "url": "https://github.com/danielamodu" }
