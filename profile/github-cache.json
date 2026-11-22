@@ -1,0 +1,76 @@
+{
+  "user": {
+    "login": "danielamodu",
+    "public_repos": 61,
+    "followers": 6,
+    "following": 9
+  },
+  "repos": {
+    "sato": {
+      "name": "sato",
+      "full_name": "danielamodu/sato",
+      "html_url": "https://github.com/danielamodu/sato",
+      "description": "Sato is a Bitcoin-native mobile payment app built on Stacks. Send sBTC to anyone by @username, earn yield on your balance, and cash out to your local currency — no wallet addresses, no gas complexity, no crypto knowledge required.",
+      "language": "TypeScript",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-10-30T11:38:54Z",
+      "topics": []
+    },
+    "cerev": {
+      "name": "cerev",
+      "full_name": "danielamodu/cerev",
+      "html_url": "https://github.com/danielamodu/cerev",
+      "description": "Pre-Execution Evidence Integrity Layer for Autonomous Agents",
+      "language": "Python",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-11-05T10:41:39Z",
+      "topics": []
+    },
+    "Sentra": {
+      "name": "Sentra",
+      "full_name": "danielamodu/Sentra",
+      "html_url": "https://github.com/danielamodu/Sentra",
+      "description": null,
+      "language": "Go",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-10-27T20:33:07Z",
+      "topics": []
+    },
+    "Aero": {
+      "name": "Aero",
+      "full_name": "danielamodu/Aero",
+      "html_url": "https://github.com/danielamodu/Aero",
+      "description": "Your money, moving and working without the complexity - live on avalanche",
+      "language": "Solidity",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-11-04T21:53:48Z",
+      "topics": []
+    },
+    "Kestrel": {
+      "name": "Kestrel",
+      "full_name": "danielamodu/Kestrel",
+      "html_url": "https://github.com/danielamodu/Kestrel",
+      "description": null,
+      "language": "Rust",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-11-02T17:18:39Z",
+      "topics": []
+    },
+    "covert": {
+      "name": "covert",
+      "full_name": "danielamodu/covert",
+      "html_url": "https://github.com/danielamodu/covert",
+      "description": "Covert is a privacy-preserving commerce layer for AI agents, built on MagicBlock's Private Ephemeral Rollups (PER). Agents can buy and sell services without leaking strategy, identity, or transaction amounts to the public ledger.",
+      "language": "JavaScript",
+      "stargazers_count": 1,
+      "forks_count": 0,
+      "updated_at": "2026-05-25T20:30:23Z",
+      "topics": []
+    }
+  }
+}

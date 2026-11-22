@@ -1,0 +1,111 @@
+{
+  "github": {
+    "username": "danielamodu",
+    "featuredRepos": [
+      {
+        "repo": "sato",
+        "solidButton": true,
+        "ctaLabel": "Visit project",
+        "ctaArrow": null,
+        "showRepoPath": false,
+        "projectUrl": "https://satoxbt.com",
+        "showBanner": true,
+        "autoOgImage": false,
+        "ogSourceUrl": "",
+        "bannerUrl": ""
+      },
+      {
+        "repo": "cerev",
+        "solidButton": true,
+        "ctaLabel": "View source",
+        "ctaArrow": null,
+        "showRepoPath": false,
+        "projectUrl": "https://github.com/danielamodu/cerev",
+        "showBanner": true,
+        "autoOgImage": false,
+        "ogSourceUrl": "",
+        "bannerUrl": ""
+      }
+    ],
+    "moreRepos": ["covert", "Sentra", "Kestrel", "Aero"]
+  },
+  "projects": {
+    "bannersEnabled": true,
+    "autoOgImages": false,
+    "bannerHeight": 200,
+    "bannerFit": "contain"
+  },
+  "profile": {
+    "name": "daniel",
+    "handle": "@danielamodu",
+    "role": "software engineer & builder",
+    "intro": "Software engineer and product builder.",
+    "status": "building sato",
+    "focus": "systems",
+    "state": "active",
+    "links": [
+      { "label": "satoxbt.com", "url": "https://satoxbt.com" },
+      { "label": "docs", "url": "https://docs.satoxbt.com" },
+      { "label": "x.com", "url": "https://x.com/fortyxbt" },
+      { "label": "github", "url": "https://github.com/danielamodu" }
+    ]
+  },
+  "theme": {
+    "dark": {
+      "page": "#121212",
+      "panel": "#181818",
+      "well": "#1e1e1e",
+      "text1": "#f2f2f2",
+      "text2": "#a3a3a3",
+      "text3": "#6e6e6e",
+      "line": "#2c2c2c",
+      "lineFaint": "#222222",
+      "accent": "#f2f2f2",
+      "accentText": "#121212",
+      "selected": "#2a2a2a",
+      "ok": "#c7c7c7",
+      "warn": "#999999",
+      "fail": "#666666",
+      "languageFallback": "#888888",
+      "auroraPalette": ["#121212", "#222222", "#3d3d3d", "#666666", "#a8a8a8", "#f2f2f2"]
+    },
+    "light": {
+      "page": "#f7f7f5",
+      "panel": "#ffffff",
+      "well": "#efefec",
+      "text1": "#121212",
+      "text2": "#525252",
+      "text3": "#828282",
+      "line": "#d6d6d2",
+      "lineFaint": "#e8e8e4",
+      "accent": "#121212",
+      "accentText": "#ffffff",
+      "selected": "#e5e5e0",
+      "ok": "#444444",
+      "warn": "#666666",
+      "fail": "#888888",
+      "languageFallback": "#707070",
+      "auroraPalette": ["#ffffff", "#eaeae6", "#cccccc", "#969696", "#555555", "#121212"]
+    }
+  },
+  "motion": {
+    "enabled": true,
+    "speed": 1,
+    "auroraDuration": 9,
+    "auroraFps": 30,
+    "pendingDuration": 0.8
+  },
+  "effects": {
+    "dither": true,
+    "ditherScale": 4,
+    "ditherStrength": 0.82,
+    "animatedAurora": true,
+    "pendingMark": true
+  },
+  "layout": {
+    "width": 880,
+    "projectColumns": 2,
+    "showStats": true,
+    "showUpdatedAt": true
+  }
+}
