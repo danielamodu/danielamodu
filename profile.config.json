@@ -4,6 +4,7 @@
     "featuredRepos": [
       {
         "repo": "sato",
+        "description": "Bitcoin-native mobile payment app on Stacks. Send sBTC by @name, earn yield, and cash out.",
         "solidButton": true,
         "ctaLabel": "Visit project",
         "ctaArrow": null,
@@ -16,6 +17,7 @@
       },
       {
         "repo": "cerev",
+        "description": "Pre-execution evidence integrity layer and verification boundary for autonomous agents.",
         "solidButton": true,
         "ctaLabel": "View source",
         "ctaArrow": null,
@@ -27,7 +29,12 @@
         "bannerUrl": ""
       }
     ],
-    "moreRepos": ["covert", "Sentra", "Kestrel", "Aero"]
+    "moreRepos": [
+      { "repo": "covert", "description": "Private commerce layer for AI agents on Solana." },
+      { "repo": "Sentra", "description": "Autonomous ops & metastable failure verifier." },
+      { "repo": "Kestrel", "description": "Redis-compatible in-memory data store in Rust." },
+      { "repo": "Aero", "description": "Consumer payments & yield app on Avalanche." }
+    ]
   },
   "projects": {
     "bannersEnabled": true,
@@ -45,8 +52,8 @@
     "state": "active",
     "links": [
       { "label": "satoxbt.com", "icon": "globe", "url": "https://satoxbt.com" },
-      { "label": "docs.satoxbt.com", "icon": "book", "url": "https://docs.satoxbt.com" },
-      { "label": "@fortyxbt", "icon": "x", "url": "https://x.com/fortyxbt" },
+      { "label": "amodu.dev", "icon": "terminal", "url": "https://amodu.dev" },
+      { "label": "@szrxbt", "icon": "x", "url": "https://x.com/szrxbt" },
       { "label": "danielamodu", "icon": "github", "url": "https://github.com/danielamodu" }
     ]
   },

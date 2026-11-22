@@ -17,15 +17,15 @@
       "updated_at": "2026-10-30T11:38:54Z",
       "topics": []
     },
-    "Kestrel": {
-      "name": "Kestrel",
-      "full_name": "danielamodu/Kestrel",
-      "html_url": "https://github.com/danielamodu/Kestrel",
-      "description": null,
-      "language": "Rust",
-      "stargazers_count": 0,
+    "cerev": {
+      "name": "cerev",
+      "full_name": "danielamodu/cerev",
+      "html_url": "https://github.com/danielamodu/cerev",
+      "description": "Pre-Execution Evidence Integrity Layer for Autonomous Agents",
+      "language": "Python",
+      "stargazers_count": 1,
       "forks_count": 0,
-      "updated_at": "2026-11-02T17:18:39Z",
+      "updated_at": "2026-11-05T10:41:39Z",
       "topics": []
     },
     "Sentra": {
@@ -39,17 +39,6 @@
       "updated_at": "2026-10-27T20:33:07Z",
       "topics": []
     },
-    "Aero": {
-      "name": "Aero",
-      "full_name": "danielamodu/Aero",
-      "html_url": "https://github.com/danielamodu/Aero",
-      "description": "Your money, moving and working without the complexity - live on avalanche",
-      "language": "Solidity",
-      "stargazers_count": 1,
-      "forks_count": 0,
-      "updated_at": "2026-11-04T21:53:48Z",
-      "topics": []
-    },
     "covert": {
       "name": "covert",
       "full_name": "danielamodu/covert",
@@ -61,15 +50,26 @@
       "updated_at": "2026-05-25T20:30:23Z",
       "topics": []
     },
-    "cerev": {
-      "name": "cerev",
-      "full_name": "danielamodu/cerev",
-      "html_url": "https://github.com/danielamodu/cerev",
-      "description": "Pre-Execution Evidence Integrity Layer for Autonomous Agents",
-      "language": "Python",
+    "Kestrel": {
+      "name": "Kestrel",
+      "full_name": "danielamodu/Kestrel",
+      "html_url": "https://github.com/danielamodu/Kestrel",
+      "description": null,
+      "language": "Rust",
+      "stargazers_count": 0,
+      "forks_count": 0,
+      "updated_at": "2026-11-02T17:18:39Z",
+      "topics": []
+    },
+    "Aero": {
+      "name": "Aero",
+      "full_name": "danielamodu/Aero",
+      "html_url": "https://github.com/danielamodu/Aero",
+      "description": "Your money, moving and working without the complexity - live on avalanche",
+      "language": "Solidity",
       "stargazers_count": 1,
       "forks_count": 0,
-      "updated_at": "2026-11-05T10:41:39Z",
+      "updated_at": "2026-11-04T21:53:48Z",
       "topics": []
     }
   }

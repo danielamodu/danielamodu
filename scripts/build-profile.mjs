@@ -34,15 +34,20 @@ function wrap(text, max = 42, lines = 2) {
   const words = source.split(/\s+/);
   const out = [];
   let line = '';
+  let truncated = false;
   for (const word of words) {
     if (`${line} ${word}`.trim().length > max && line) {
       out.push(line);
+      if (out.length === lines) {
+        truncated = true;
+        line = '';
+        break;
+      }
       line = word;
-      if (out.length === lines - 1) break;
     } else line = `${line} ${word}`.trim();
   }
   if (out.length < lines && line) out.push(line);
-  if (out.join(' ').length < source.length && out.length) out[out.length - 1] = clamp(out[out.length - 1], max - 1) + '…';
+  if (truncated && out.length) out[out.length - 1] = clamp(out[out.length - 1], max - 1) + '…';
   return out.slice(0, lines);
 }
 
@@ -378,7 +383,7 @@ function reposSvg(repos) {
   const H = headerH + headingsH + repos.length * rowH;
   const rows = repos.map((repo, index) => {
     const y = headerH + headingsH + index * rowH;
-    return `<line x1="0" x2="${W}" y1="${y + rowH + .5}" y2="${y + rowH + .5}" stroke="${c.lineFaint}"/><text x="12" y="${y + 31}" class="code t1">${esc(clamp(repo.name, 22))}</text><text x="225" y="${y + 31}" class="sans" font-size="13" fill="${c.text2}">${esc(clamp(repo.description || 'No description yet.', 48))}</text><text x="610" y="${y + 31}" class="code-sm t1">${esc(repo.language || 'mixed')}</text><text x="790" y="${y + 31}" class="code-sm t1">${compact(repo.stargazers_count)}</text>`;
+    return `<line x1="0" x2="${W}" y1="${y + rowH + .5}" y2="${y + rowH + .5}" stroke="${c.lineFaint}"/><text x="12" y="${y + 31}" class="code t1">${esc(clamp(repo.name, 22))}</text><text x="225" y="${y + 31}" class="sans" font-size="13" fill="${c.text2}">${esc(clamp(repo.description || 'No description yet.', 54))}</text><text x="610" y="${y + 31}" class="code-sm t1">${esc(repo.language || 'mixed')}</text><text x="790" y="${y + 31}" class="code-sm t1">${compact(repo.stargazers_count)}</text>`;
   }).join('');
   const headings = `<text x="12" y="59" class="micro t3">Repository</text><text x="225" y="59" class="micro t3">Description</text><text x="610" y="59" class="micro t3">Language</text><text x="790" y="59" class="micro t3">Stars</text>`;
   return shell(W, H, `More repositories by ${github.username}`, `${panelHead(W, 'more repositories', `${repos.length} selected`)}${headings}${rows}`);
@@ -390,6 +395,9 @@ function linkIcon(icon, x, y) {
   }
   if (icon === 'book') {
     return `<g transform="translate(${x} ${y}) scale(0.6667)" fill="none" stroke="${c.text2}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></g>`;
+  }
+  if (icon === 'terminal') {
+    return `<g transform="translate(${x} ${y}) scale(0.6667)" fill="none" stroke="${c.text2}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" x2="20" y1="19" y2="19"/></g>`;
   }
   if (icon === 'x') {
     return `<g transform="translate(${x} ${y + 0.5}) scale(0.625)" fill="${c.text2}"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></g>`;
@@ -474,9 +482,15 @@ const featured = (await Promise.all(github.featuredRepos.map(async (entry) => {
   const option = featuredOption(entry);
   const repo = data.repos[option.repo];
   if (!repo) return null;
-  return { ...repo, __options: option, __banner: await loadBanner(option, repo) };
+  const description = option.description || repo.description;
+  return { ...repo, description, __options: option, __banner: await loadBanner(option, repo) };
 }))).filter(Boolean);
-const more = github.moreRepos.map((entry) => data.repos[repoKey(entry)]).filter(Boolean);
+const more = github.moreRepos.map((entry) => {
+  const repo = data.repos[repoKey(entry)];
+  if (!repo) return null;
+  const customDesc = typeof entry === 'object' && entry.description ? entry.description : null;
+  return customDesc ? { ...repo, description: customDesc } : repo;
+}).filter(Boolean);
 const links = profile.links.slice(0, 6);
 async function writeTheme(name, palette) {
   c = palette;
