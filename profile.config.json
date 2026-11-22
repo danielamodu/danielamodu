@@ -44,10 +44,10 @@
     "focus": "systems",
     "state": "active",
     "links": [
-      { "label": "satoxbt.com", "url": "https://satoxbt.com" },
-      { "label": "docs", "url": "https://docs.satoxbt.com" },
-      { "label": "x.com", "url": "https://x.com/fortyxbt" },
-      { "label": "github", "url": "https://github.com/danielamodu" }
+      { "label": "satoxbt.com", "icon": "globe", "url": "https://satoxbt.com" },
+      { "label": "docs.satoxbt.com", "icon": "book", "url": "https://docs.satoxbt.com" },
+      { "label": "@fortyxbt", "icon": "x", "url": "https://x.com/fortyxbt" },
+      { "label": "danielamodu", "icon": "github", "url": "https://github.com/danielamodu" }
     ]
   },
   "theme": {

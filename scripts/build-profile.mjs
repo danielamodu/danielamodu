@@ -384,14 +384,36 @@ function reposSvg(repos) {
   return shell(W, H, `More repositories by ${github.username}`, `${panelHead(W, 'more repositories', `${repos.length} selected`)}${headings}${rows}`);
 }
 
-function linkSvg(label, width = W / 4) {
-  const ax = width - 26;
-  const arrow = `<path d="M${ax} 39 L${ax + 8} 31 M${ax + 2} 31 L${ax + 8} 31 L${ax + 8} 37" fill="none" stroke="${c.text3}" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>`;
-  return shell(width, 68, label, `<text x="16" y="39" class="label t1">${esc(label)}</text>${arrow}`);
+function linkIcon(icon, x, y) {
+  if (icon === 'globe') {
+    return `<g transform="translate(${x} ${y}) scale(0.6667)" fill="none" stroke="${c.text2}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g>`;
+  }
+  if (icon === 'book') {
+    return `<g transform="translate(${x} ${y}) scale(0.6667)" fill="none" stroke="${c.text2}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></g>`;
+  }
+  if (icon === 'x') {
+    return `<g transform="translate(${x} ${y + 0.5}) scale(0.625)" fill="${c.text2}"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></g>`;
+  }
+  if (icon === 'github') {
+    return `<g transform="translate(${x} ${y}) scale(0.6667)" fill="${c.text2}"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></g>`;
+  }
+  return '';
+}
+
+function linkSvg(link, width = W / 4) {
+  const label = typeof link === 'string' ? link : link.label;
+  const icon = typeof link === 'string' ? '' : (link.icon || '');
+  const hasIcon = Boolean(icon);
+  const textW = label.length * 7.8;
+  const contentW = (hasIcon ? 26 : 0) + textW;
+  const startX = Math.max(14, Math.round((width - contentW) / 2));
+  const iconMarkup = hasIcon ? linkIcon(icon, startX, 26) : '';
+  const textX = hasIcon ? startX + 26 : startX;
+  return shell(width, 68, label, `${iconMarkup}<text x="${textX}" y="38.5" class="code t1">${esc(label)}</text>`);
 }
 
 function themePicture(name, width, alt) {
-  return `<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/generated/${name}-dark.svg?v=${assetVersion}"><source media="(prefers-color-scheme: light)" srcset="./profile/generated/${name}-light.svg?v=${assetVersion}"><img src="./profile/generated/${name}-dark.svg?v=${assetVersion}" width="${width}" alt="${alt}"></picture>`;
+  return `<picture><source media="(prefers-color-scheme: dark)" srcset="./profile/generated/${name}-${assetVersion}-dark.svg"><source media="(prefers-color-scheme: light)" srcset="./profile/generated/${name}-${assetVersion}-light.svg"><img src="./profile/generated/${name}-${assetVersion}-dark.svg" width="${width}" alt="${alt}"></picture>`;
 }
 
 function readme(featured, more, links) {
@@ -458,10 +480,10 @@ const more = github.moreRepos.map((entry) => data.repos[repoKey(entry)]).filter(
 const links = profile.links.slice(0, 6);
 async function writeTheme(name, palette) {
   c = palette;
-  await writeFile(path.join(OUT, `header-${name}.svg`), headerSvg());
-  await Promise.all(featured.map((repo, index) => writeFile(path.join(OUT, `project-${String(index + 1).padStart(2, '0')}-${name}.svg`), projectSvg(repo))));
-  await writeFile(path.join(OUT, `repos-${name}.svg`), reposSvg(more));
-  await Promise.all(links.map((link, index) => writeFile(path.join(OUT, `link-${String(index + 1).padStart(2, '0')}-${name}.svg`), linkSvg(link.label, W / links.length))));
+  await writeFile(path.join(OUT, `header-${assetVersion}-${name}.svg`), headerSvg());
+  await Promise.all(featured.map((repo, index) => writeFile(path.join(OUT, `project-${String(index + 1).padStart(2, '0')}-${assetVersion}-${name}.svg`), projectSvg(repo))));
+  await writeFile(path.join(OUT, `repos-${assetVersion}-${name}.svg`), reposSvg(more));
+  await Promise.all(links.map((link, index) => writeFile(path.join(OUT, `link-${String(index + 1).padStart(2, '0')}-${assetVersion}-${name}.svg`), linkSvg(link, W / links.length))));
 }
 
 await writeTheme('dark', themes.dark);
