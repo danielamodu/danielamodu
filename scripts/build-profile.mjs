@@ -378,14 +378,16 @@ function reposSvg(repos) {
   const H = headerH + headingsH + repos.length * rowH;
   const rows = repos.map((repo, index) => {
     const y = headerH + headingsH + index * rowH;
-    return `<line x1="0" x2="${W}" y1="${y + rowH + .5}" y2="${y + rowH + .5}" stroke="${c.lineFaint}"/><text x="12" y="${y + 31}" class="code t1">${esc(clamp(repo.name, 22))}</text><text x="225" y="${y + 31}" class="sans" font-size="13" fill="${c.text2}">${esc(clamp(repo.description || 'No description yet.', 48))}</text><text x="610" y="${y + 31}" class="code-sm t1">${esc(repo.language || 'mixed')}</text><text x="790" y="${y + 31}" class="code-sm t1">★ ${compact(repo.stargazers_count)}</text>`;
+    return `<line x1="0" x2="${W}" y1="${y + rowH + .5}" y2="${y + rowH + .5}" stroke="${c.lineFaint}"/><text x="12" y="${y + 31}" class="code t1">${esc(clamp(repo.name, 22))}</text><text x="225" y="${y + 31}" class="sans" font-size="13" fill="${c.text2}">${esc(clamp(repo.description || 'No description yet.', 48))}</text><text x="610" y="${y + 31}" class="code-sm t1">${esc(repo.language || 'mixed')}</text><text x="790" y="${y + 31}" class="code-sm t1">${compact(repo.stargazers_count)}</text>`;
   }).join('');
   const headings = `<text x="12" y="59" class="micro t3">Repository</text><text x="225" y="59" class="micro t3">Description</text><text x="610" y="59" class="micro t3">Language</text><text x="790" y="59" class="micro t3">Stars</text>`;
   return shell(W, H, `More repositories by ${github.username}`, `${panelHead(W, 'more repositories', `${repos.length} selected`)}${headings}${rows}`);
 }
 
 function linkSvg(label, width = W / 4) {
-  return shell(width, 68, label, `<text x="12" y="41" class="label t1">${esc(label)} ↗</text>`);
+  const ax = width - 26;
+  const arrow = `<path d="M${ax} 39 L${ax + 8} 31 M${ax + 2} 31 L${ax + 8} 31 L${ax + 8} 37" fill="none" stroke="${c.text3}" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>`;
+  return shell(width, 68, label, `<text x="16" y="39" class="label t1">${esc(label)}</text>${arrow}`);
 }
 
 function themePicture(name, width, alt) {
